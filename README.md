@@ -52,3 +52,8 @@ Open [http://localhost:5173](http://localhost:5173).
 - `packages/tools`: first-party tools and tool helpers.
 - `packages/glass`: early visual layer work.
 - `apps/playground`: Minimal demo of current capabilities.
+
+### Repository Workflow
+- `main`: stable public branch.
+- `dev`: active integration branch.
+- Pull requests should target `dev` unless a maintainer says otherwise.
