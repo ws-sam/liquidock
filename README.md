@@ -47,15 +47,8 @@ Open [http://localhost:5173](http://localhost:5173).
 ---
 
 ### Project Structure
-- `packages/core`: The hardware-agnostic runtime logic.
+- `packages/core`: core runtime contracts and state orchestration.
 - `packages/react`: React bindings for the dock.
-- `packages/tools`: Standard library and contracts for tools.
-- `packages/glass`: Visual system and aesthetics layer.
+- `packages/tools`: first-party tools and tool helpers.
+- `packages/glass`: early visual layer work.
 - `apps/playground`: Minimal demo of current capabilities.
-
-### Repository Workflow
-We use a two-lane branch model:
-- `main`: Stable release lane.
-- `dev`: Active integration branch.
-
-Please target all Pull Requests to the `dev` branch. For more details, see [CONTRIBUTING.md](./CONTRIBUTING.md).
