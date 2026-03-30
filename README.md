@@ -16,14 +16,16 @@ Liquidock is an open-source dock runtime for websites and apps. It manages tools
 - A polished production-ready framework
 
 ## Current prototype scope
-The current prototype focuses on runtime behavior, not polish. It currently demonstrates:
-- a minimal dock row
+The current prototype focuses on honest runtime behavior and an in-progress dock shell extraction. It currently demonstrates:
+- a liquid-glass dock shell extracted toward a reusable open-source runtime
 - tool activation
 - one attached surface visible at a time
 - a single-overlay model
+- draggable dock positioning
+- hover expansion and inline label reveal
 - minimal React bindings over the runtime
 
-Hard problems like drag, snapping, advanced layout, and animation are intentionally not solved yet.
+Hard problems like snapping, persistence strategy, adaptive multi-surface layout, and richer tool/plugin APIs are still intentionally unresolved.
 
 ## Getting started
 Install dependencies:
