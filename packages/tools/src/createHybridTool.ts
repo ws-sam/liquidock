@@ -13,5 +13,6 @@ export function createHybridTool(options: HybridToolOptions): BaseToolContract {
     trigger: options.trigger,
     surface: options.surface,
     overlay: options.overlay,
+    presentation: options.presentation,
   };
 }
