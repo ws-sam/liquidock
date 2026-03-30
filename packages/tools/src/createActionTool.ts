@@ -6,5 +6,6 @@ export function createActionTool(options: ToolOptions): BaseToolContract {
     id: options.id,
     kind: 'action',
     trigger: options.trigger,
+    presentation: options.presentation,
   };
 }

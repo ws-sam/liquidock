@@ -11,5 +11,6 @@ export function createOverlayTool(options: OverlayToolOptions): BaseToolContract
     kind: 'overlay',
     trigger: options.trigger,
     overlay: options.overlay,
+    presentation: options.presentation,
   };
 }

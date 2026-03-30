@@ -11,5 +11,6 @@ export function createPanelTool(options: PanelToolOptions): BaseToolContract {
     kind: 'panel',
     trigger: options.trigger,
     surface: options.surface,
+    presentation: options.presentation,
   };
 }

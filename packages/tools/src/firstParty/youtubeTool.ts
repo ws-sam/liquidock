@@ -7,4 +7,13 @@ export const youtubeTool = createActionTool({
     label: 'YouTube',
     icon: 'youtube',
   },
+  presentation: {
+    accent: '#ff7f7f',
+    badge: 'media',
+    summary: 'Open the video handoff.',
+    dock: {
+      label: 'YouTube',
+      hint: 'Video handoff',
+    },
+  },
 });
