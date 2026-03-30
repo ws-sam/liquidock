@@ -1,4 +1,4 @@
-# Liquidock
+# ws-sam / liquidock
 
 Liquidock is an open-source dock runtime for websites and apps. It manages tools, attached surfaces, and overlays through a shared runtime model.
 
