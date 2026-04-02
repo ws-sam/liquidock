@@ -52,7 +52,7 @@ export const shareTool = createPanelTool({
       ],
       draft: {
         title: 'Payload',
-        body: 'liquidock / preview\nCompact dock layer ready for share handoff.',
+        body: 'LiDock / preview\nCompact dock layer ready for share handoff.',
         placeholder: 'Compose payload',
       },
       actions: [

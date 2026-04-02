@@ -17,16 +17,16 @@ importers:
 
   apps/playground:
     dependencies:
-      '@liquidock/core':
+      '@lidock/core':
         specifier: workspace:*
         version: link:../../packages/core
-      '@liquidock/glass':
+      '@lidock/glass':
         specifier: workspace:*
         version: link:../../packages/glass
-      '@liquidock/react':
+      '@lidock/react':
         specifier: workspace:*
         version: link:../../packages/react
-      '@liquidock/tools':
+      '@lidock/tools':
         specifier: workspace:*
         version: link:../../packages/tools
       react:
@@ -58,7 +58,7 @@ importers:
 
   packages/react:
     dependencies:
-      '@liquidock/core':
+      '@lidock/core':
         specifier: workspace:*
         version: link:../core
       react:
@@ -70,7 +70,7 @@ importers:
 
   packages/tools:
     dependencies:
-      '@liquidock/core':
+      '@lidock/core':
         specifier: workspace:*
         version: link:../core
 
