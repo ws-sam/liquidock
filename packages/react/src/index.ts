@@ -1,2 +1,2 @@
-export * from './Liquidock';
-export * from './hooks/useLiquidock';
+export * from './LiDock';
+export * from './hooks/useLiDock';

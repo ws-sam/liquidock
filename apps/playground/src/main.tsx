@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
-import { DockConfigInput, DockEdge } from '@liquidock/core';
-import { Liquidock } from '@liquidock/react';
-import { defaultDockTools } from '@liquidock/tools';
+import { DockConfigInput, DockEdge } from '@lidock/core';
+import { LiDock } from '@lidock/react';
+import { defaultDockTools } from '@lidock/tools';
 
 const PLAYGROUND_STYLES = `
   :root {
@@ -231,9 +231,9 @@ function App() {
     <>
       <style>{PLAYGROUND_STYLES}</style>
       <div className="playground-stage">
-        <Liquidock config={config} tools={defaultDockTools}>
+        <LiDock config={config} tools={defaultDockTools}>
           <PlaygroundTuner config={config} setConfig={setConfig} />
-        </Liquidock>
+        </LiDock>
       </div>
     </>
   );

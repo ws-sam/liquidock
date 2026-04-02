@@ -1,15 +1,15 @@
-# Liquidock
+# LiDock
 
-Liquidock is an open-source dock runtime for websites and apps. It manages tools, attached surfaces, and overlays through a shared runtime model.
+LiDock is an open-source dock runtime for websites and apps. It manages tools, attached surfaces, and overlays through a shared runtime model.
 
 **Current phase:** first honest browser-viewable prototype.
 
-## What Liquidock is
+## What LiDock is
 - A runtime for dock-oriented tool orchestration
 - A shared behavior model for tools, attached surfaces, and overlays
 - A small monorepo focused on getting the runtime and the first browser-viewable prototype into a truthful state
 
-## What Liquidock is not
+## What LiDock is not
 - A navbar
 - A UI kit
 - A component library

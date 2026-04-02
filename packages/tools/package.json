@@ -1,5 +1,5 @@
 {
-  "name": "@liquidock/tools",
+  "name": "@lidock/tools",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -12,7 +12,7 @@
     }
   },
   "dependencies": {
-    "@liquidock/core": "workspace:*"
+    "@lidock/core": "workspace:*"
   },
   "scripts": {
     "build": "tsc",

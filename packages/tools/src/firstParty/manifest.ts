@@ -1,4 +1,4 @@
-import { BaseToolContract } from '@liquidock/core';
+import { BaseToolContract } from '@lidock/core';
 import { homeTool } from './homeTool';
 import { githubTool } from './githubTool';
 import { xTool } from './xTool';

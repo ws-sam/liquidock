@@ -1,4 +1,4 @@
-import { ToolTriggerSpec, ToolPresentationSpec } from '@liquidock/core';
+import { ToolTriggerSpec, ToolPresentationSpec } from '@lidock/core';
 
 export interface ToolOptions {
   id: string;

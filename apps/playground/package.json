@@ -9,10 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@liquidock/core": "workspace:*",
-    "@liquidock/react": "workspace:*",
-    "@liquidock/tools": "workspace:*",
-    "@liquidock/glass": "workspace:*",
+    "@lidock/core": "workspace:*",
+    "@lidock/react": "workspace:*",
+    "@lidock/tools": "workspace:*",
+    "@lidock/glass": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

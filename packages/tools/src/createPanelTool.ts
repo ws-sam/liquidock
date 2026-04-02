@@ -1,4 +1,4 @@
-import { BaseToolContract, ToolSurfaceSpec } from '@liquidock/core';
+import { BaseToolContract, ToolSurfaceSpec } from '@lidock/core';
 import { ToolOptions } from './contracts';
 
 export interface PanelToolOptions extends ToolOptions {

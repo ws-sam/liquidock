@@ -1,6 +1,6 @@
-# Contributing to Liquidock
+# Contributing to LiDock
 
-Liquidock is currently in its first browser-viewable prototype phase. We prioritize runtime correctness and honest architectural implementation over visual polish or "vibe-coded" patterns.
+LiDock is currently in its first browser-viewable prototype phase. We prioritize runtime correctness and honest architectural implementation over visual polish or "vibe-coded" patterns.
 
 ## Principles for Contributors
 

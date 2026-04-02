@@ -1,4 +1,4 @@
-import { BaseToolContract } from '@liquidock/core';
+import { BaseToolContract } from '@lidock/core';
 import { ToolOptions } from './contracts';
 
 export function createActionTool(options: ToolOptions): BaseToolContract {

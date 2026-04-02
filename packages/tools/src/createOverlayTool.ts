@@ -1,4 +1,4 @@
-import { BaseToolContract, ToolOverlaySpec } from '@liquidock/core';
+import { BaseToolContract, ToolOverlaySpec } from '@lidock/core';
 import { ToolOptions } from './contracts';
 
 export interface OverlayToolOptions extends ToolOptions {
