@@ -7,4 +7,13 @@ export const homeTool = createActionTool({
     label: 'Home',
     icon: 'home',
   },
+  presentation: {
+    accent: '#8cc3ff',
+    badge: 'home',
+    summary: 'Return to the primary workspace.',
+    dock: {
+      label: 'Home',
+      hint: 'Select the primary lane',
+    },
+  },
 });

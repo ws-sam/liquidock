@@ -1,7 +1,6 @@
-import { useContext, createContext, useSyncExternalStore } from 'react';
+import { useContext, useSyncExternalStore } from 'react';
 import type { DockRuntime, RuntimeState } from '@liquidock/core';
-
-export const LiquidockContext = createContext<DockRuntime | null>(null);
+import { LiquidockContext } from '../Liquidock';
 
 export function useLiquidock() {
   const runtime = useContext(LiquidockContext);
