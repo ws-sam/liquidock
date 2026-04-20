@@ -7,4 +7,13 @@ export const xTool = createActionTool({
     label: 'X',
     icon: 'x',
   },
+  presentation: {
+    accent: '#9be3d4',
+    badge: 'social',
+    summary: 'Open the short post handoff.',
+    dock: {
+      label: 'X',
+      hint: 'Short post handoff',
+    },
+  },
 });

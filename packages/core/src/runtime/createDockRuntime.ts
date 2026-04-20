@@ -1,6 +1,7 @@
-import { createInitialState } from './state.js';
+import { createInitialState, getDockOrientation, mergeDockConfig } from './state.js';
 import { RuntimeState } from './types.js';
 import { BaseToolContract } from '../types/tool.js';
+import { DockConfigInput, DockPosition } from '../types/dock.js';
 
 export type DockRuntimeListener = (state: RuntimeState) => void;
 
@@ -9,16 +10,30 @@ export interface DockRuntime {
   registerTool: (tool: BaseToolContract) => void;
   getTool: (id: string) => BaseToolContract | undefined;
   activateTool: (id: string) => void;
+  toggleTool: (id: string) => void;
   clearActiveTool: () => void;
   openSurface: (toolId: string) => void;
   closeSurface: (toolId: string) => void;
   activateOverlay: (toolId: string) => void;
   deactivateOverlay: (toolId: string) => void;
+  updateDockConfig: (config: DockConfigInput) => void;
+  setDockPosition: (position?: DockPosition) => void;
   subscribe: (listener: DockRuntimeListener) => () => void;
 }
 
-export const createDockRuntime = (): DockRuntime => {
-  let state = createInitialState();
+export interface CreateDockRuntimeOptions {
+  config?: DockConfigInput;
+}
+
+const activateToolState = (currentState: RuntimeState, tool: BaseToolContract): RuntimeState => ({
+  ...currentState,
+  activeToolId: tool.id,
+  activeSurfaceToolId: tool.surface ? tool.id : undefined,
+  overlays: tool.overlay ? { [tool.id]: true } : {},
+});
+
+export const createDockRuntime = (options: CreateDockRuntimeOptions = {}): DockRuntime => {
+  let state = createInitialState(options.config);
   const listeners = new Set<DockRuntimeListener>();
 
   const emit = () => {
@@ -65,12 +80,32 @@ export const createDockRuntime = (): DockRuntime => {
     getTool,
     activateTool: (id) => {
       const tool = requireTool(id);
-      updateState((currentState) => ({
-        ...currentState,
-        activeToolId: tool.id,
-        activeSurfaceToolId: tool.surface ? tool.id : currentState.activeSurfaceToolId,
-        overlays: tool.overlay ? { [tool.id]: true } : currentState.overlays,
-      }));
+      updateState((currentState) => activateToolState(currentState, tool));
+    },
+    toggleTool: (id) => {
+      const tool = requireTool(id);
+
+      updateState((currentState) => {
+        const isActive =
+          currentState.activeToolId === id ||
+          currentState.activeSurfaceToolId === id ||
+          Boolean(currentState.overlays[id]);
+
+        if (!isActive) {
+          return activateToolState(currentState, tool);
+        }
+
+        const nextOverlays = { ...currentState.overlays };
+        delete nextOverlays[id];
+
+        return {
+          ...currentState,
+          activeToolId: currentState.activeToolId === id ? undefined : currentState.activeToolId,
+          activeSurfaceToolId:
+            currentState.activeSurfaceToolId === id ? undefined : currentState.activeSurfaceToolId,
+          overlays: nextOverlays,
+        };
+      });
     },
     clearActiveTool: () => {
       updateState((currentState) => ({
@@ -98,6 +133,10 @@ export const createDockRuntime = (): DockRuntime => {
 
         return {
           ...currentState,
+          activeToolId:
+            currentState.activeToolId === toolId && !currentState.overlays[toolId]
+              ? undefined
+              : currentState.activeToolId,
           activeSurfaceToolId: undefined,
         };
       });
@@ -126,9 +165,60 @@ export const createDockRuntime = (): DockRuntime => {
 
         return {
           ...currentState,
+          activeToolId:
+            currentState.activeToolId === toolId && currentState.activeSurfaceToolId !== toolId
+              ? undefined
+            : currentState.activeToolId,
           overlays: nextOverlays,
         };
       });
+    },
+    updateDockConfig: (config) => {
+      updateState((currentState) => {
+        const nextConfig = mergeDockConfig({
+          ...currentState.dock.config,
+          ...config,
+          positioning: {
+            ...currentState.dock.config.positioning,
+            ...config.positioning,
+          },
+          frame: {
+            ...currentState.dock.config.frame,
+            ...config.frame,
+          },
+          item: {
+            ...currentState.dock.config.item,
+            ...config.item,
+          },
+          surface: {
+            ...currentState.dock.config.surface,
+            ...config.surface,
+          },
+          motion: {
+            ...currentState.dock.config.motion,
+            ...config.motion,
+          },
+        });
+
+        return {
+          ...currentState,
+          dock: {
+            ...currentState.dock,
+            edge: nextConfig.positioning.edge,
+            orientation: getDockOrientation(nextConfig.positioning.edge),
+            config: nextConfig,
+          },
+        };
+      });
+    },
+    setDockPosition: (position) => {
+      updateState((currentState) => ({
+        ...currentState,
+        dock: {
+          ...currentState.dock,
+          position,
+        },
+      }));
     },
     subscribe: (listener) => {
       listeners.add(listener);
