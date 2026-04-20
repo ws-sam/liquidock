@@ -1,0 +1,23 @@
+name: Runtime gap or bug
+description: Report a runtime behavior gap, contract issue, or prototype bug
+labels: [bug]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe the runtime behavior, expected result, and actual result.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction steps
+      description: How do we reproduce it in apps/playground?
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact
+      description: What part of the runtime contract or UI behavior does this break?
