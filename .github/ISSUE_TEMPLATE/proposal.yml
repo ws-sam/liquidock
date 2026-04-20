@@ -1,0 +1,21 @@
+name: Proposal
+description: Suggest a runtime, workflow, or monorepo standard change
+labels: [proposal]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or gap
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Downstream impact
+      description: Which packages, apps, or docs would this affect?
