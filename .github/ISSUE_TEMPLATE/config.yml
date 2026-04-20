@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Mad House workflow standard
+    url: https://github.com/madebymadhouse/bot-dev-playbook/blob/main/AGENTIC_GIT_WORKFLOW.md
+    about: Read the shared branch / PR / merge standard before opening a workflow issue.
